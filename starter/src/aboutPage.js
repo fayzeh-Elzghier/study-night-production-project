@@ -3,8 +3,6 @@
 //This file is responsible for rendering the About page,
 //including loading any content about the application and organization.
 //This imports helper functions
-//This imports the image
-import aboutPageImage from "../images/aboutImage.png";
 // This function creates a header element
 import {
   createHeader,
@@ -32,9 +30,15 @@ export const renderAboutPage = () => {
   const subHeading = createElement("h3", "Flash Cards Anywhere Anytime");
 
   // Create and set up the paragraph
-  let text =
+  const text =
     "Whether you're studying at night or during the day, Study Night's flashcard application is designed to help you grow your skills in any subject. Whether you're preparing for an exam or learning a new language, Study Night makes it easy to create flashcard sets that are available anytime, anywhere.\n\nStudy Night was created by experienced educators and developers who are passionate about helping students achieve their goals and making learning more accessible.";
   const aboutP = createElement("p", text);
+
+  // Parcel-friendly image URL
+  const aboutPageImage = new URL(
+    "../images/aboutImage.png",
+    import.meta.url
+  ).href;
 
   // Create and set up the image
   const aboutImage = createImage(aboutPageImage, "Child Studying");
